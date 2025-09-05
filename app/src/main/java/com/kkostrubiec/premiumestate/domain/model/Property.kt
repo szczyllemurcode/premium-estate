@@ -23,6 +23,8 @@ data class Property(
 enum class OfferType(val value: Int) {
     SALE(1),
     RENT(2),
+    SOLD(3),
+    RENTED(4),
     UNKNOWN(0);
 
     companion object {

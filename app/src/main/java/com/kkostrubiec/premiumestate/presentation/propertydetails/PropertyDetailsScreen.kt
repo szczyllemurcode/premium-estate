@@ -234,6 +234,8 @@ private fun getOfferTypeText(offerType: OfferType): String {
     return when (offerType) {
         OfferType.SALE -> "For Sale"
         OfferType.RENT -> "For Rent"
+        OfferType.SOLD -> "Sold"
+        OfferType.RENTED -> "Rented"
         OfferType.UNKNOWN -> "Unknown"
     }
 }
