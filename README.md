@@ -31,3 +31,22 @@ Like it or not, AI is the future. Companies will start to expect it from develop
 - sometimes copilot was proposing too much, especially in the UI part
 - sometimes it didn't follow instructions
 - sometimes it was not capable of fixing some problem without making another one
+
+# Update from another night..
+
+I felt unsatisfied overnight.. then I had another idea.
+
+1. I've ask AI to check android.developers.com for best practices and prepare a message for AI to
+   generate `copilot-instructions.md` file again
+2. Created `copilot-instructions-v2.md` file and validate it with different models
+3. Put `copilot-instructions-v2.md` into the project
+4. Run the agent again, focused on architecture, code quality, best practices
+5. He proposed everything as you can see in `attempt-with-new-copilot-instructions-prepared-by-ai`
+   branch
+
+It is powerful attempt in terms of creating a specified module scoped `copilot-instructions.md`
+files inside our current projects. It will boost our work dramatically...
+
+The new `copilot-instructions-v2.md` is more general and there are a lot parts that can be
+modified (and for this project, mostly unused).
+I left it as it was generated, because I wanted to use only AI work, not mine.
