@@ -17,7 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
-import com.kkostrubiec.premiumestate.data.model.Property
+import com.kkostrubiec.premiumestate.domain.model.Property
+import com.kkostrubiec.premiumestate.domain.model.OfferType
 import com.kkostrubiec.premiumestate.presentation.common.ErrorScreen
 import java.text.NumberFormat
 import java.util.*
@@ -98,7 +99,7 @@ private fun PropertyDetailsContent(
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
         // Property Image - only show if exists
-        property.url?.let { imageUrl ->
+        property.imageUrl?.let { imageUrl ->
             AsyncImage(
                 model = imageUrl,
                 contentDescription = "Property image",
@@ -229,12 +230,10 @@ private fun formatPrice(price: Double): String {
     return formatter.format(price)
 }
 
-private fun getOfferTypeText(offerType: Int): String {
+private fun getOfferTypeText(offerType: OfferType): String {
     return when (offerType) {
-        1 -> "For Sale"
-        2 -> "For Rent"
-        3 -> "Sold"
-        4 -> "Rented"
-        else -> "Unknown"
+        OfferType.SALE -> "For Sale"
+        OfferType.RENT -> "For Rent"
+        OfferType.UNKNOWN -> "Unknown"
     }
 }

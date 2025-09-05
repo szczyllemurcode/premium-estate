@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
-import com.kkostrubiec.premiumestate.data.model.Property
+import com.kkostrubiec.premiumestate.domain.model.Property
 import com.kkostrubiec.premiumestate.presentation.common.ErrorScreen
 import java.text.NumberFormat
 import java.util.*
@@ -101,7 +101,7 @@ private fun PropertyItem(
     ) {
         Column {
             // Property Image - only show if exists
-            property.url?.let { imageUrl ->
+            property.imageUrl?.let { imageUrl ->
                 AsyncImage(
                     model = imageUrl,
                     contentDescription = "Property image",

@@ -2,8 +2,8 @@ package com.kkostrubiec.premiumestate.presentation.propertydetails
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kkostrubiec.premiumestate.data.model.Property
-import com.kkostrubiec.premiumestate.data.repository.PropertyRepository
+import com.kkostrubiec.premiumestate.domain.model.Property
+import com.kkostrubiec.premiumestate.domain.usecase.GetPropertyDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PropertyDetailsViewModel @Inject constructor(
-    private val repository: PropertyRepository
+    private val getPropertyDetailsUseCase: GetPropertyDetailsUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(PropertyDetailsUiState())
@@ -23,7 +23,7 @@ class PropertyDetailsViewModel @Inject constructor(
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true, error = null)
 
-            repository.getPropertyDetails(listingId)
+            getPropertyDetailsUseCase(listingId)
                 .onSuccess { property ->
                     _uiState.value = _uiState.value.copy(
                         property = property,
