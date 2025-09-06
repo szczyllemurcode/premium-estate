@@ -1,6 +1,6 @@
 package com.kkostrubiec.premiumestate.domain.usecase
 
-import com.kkostrubiec.premiumestate.data.repository.PropertyRepository
+import com.kkostrubiec.premiumestate.domain.repository.PropertyRepository
 import com.kkostrubiec.premiumestate.domain.model.Property
 import javax.inject.Inject
 

@@ -3,15 +3,16 @@ package com.kkostrubiec.premiumestate.data.repository
 import com.kkostrubiec.premiumestate.data.api.PropertyApiService
 import com.kkostrubiec.premiumestate.data.mapper.PropertyMapper.toDomain
 import com.kkostrubiec.premiumestate.domain.model.Property
+import com.kkostrubiec.premiumestate.domain.repository.PropertyRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PropertyRepository @Inject constructor(
+class PropertyRepositoryImpl @Inject constructor(
     private val apiService: PropertyApiService
-) {
+) : PropertyRepository {
 
-    suspend fun getProperties(): Result<List<Property>> {
+    override suspend fun getProperties(): Result<List<Property>> {
         return try {
             val response = apiService.getProperties()
             if (response.isSuccessful) {
@@ -26,7 +27,7 @@ class PropertyRepository @Inject constructor(
         }
     }
 
-    suspend fun getPropertyDetails(listingId: Int): Result<Property> {
+    override suspend fun getPropertyDetails(listingId: Int): Result<Property> {
         return try {
             val response = apiService.getPropertyDetails(listingId)
             if (response.isSuccessful) {
