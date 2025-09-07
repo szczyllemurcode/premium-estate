@@ -51,6 +51,6 @@ class PropertyListViewModel @Inject constructor(
 
 data class PropertyListUiState(
     val properties: List<Property> = emptyList(),
-    val isLoading: Boolean = false,
+    val isLoading: Boolean = true,
     val error: String? = null
 )
