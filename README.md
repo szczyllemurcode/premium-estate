@@ -55,7 +55,7 @@ only AI work, not mine.
 
 In this step I've added repository pattern, separated domain / data models and generate mapper class.
 
-### Update from friday night..
+### Update from sunday night..
 
 Tests? No problem.. at first. Getting setup and working test class was not possible. After a long
 time, I've separated setup libraries into one process, and writing tests into another process.
